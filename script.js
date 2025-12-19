@@ -6,11 +6,11 @@ const achieveURL  = "https://raw.githubusercontent.com/Vishwa-Narayanan-dev/vish
 
 
 // ================= SKILLS =================
+// ================= SKILLS =================
+const skillsURL = "https://raw.githubusercontent.com/Vishwa-Narayanan-dev/vishwa-portfolio-data/main/skills.json";
 const skillsGrid = document.querySelector(".skills-grid");
 
 async function loadSkills() {
-  if (!skillsGrid) return; // safety
-
   const res = await fetch(skillsURL);
   const skills = await res.json();
 
@@ -19,8 +19,8 @@ async function loadSkills() {
   skills.forEach(skill => {
     skillsGrid.innerHTML += `
       <div class="skill-card">
-        <img src="${skill.icon}" alt="${skill.name}" width="48" height="48">
-        <p>${skill.name}</p>
+        <img src="${skill.image}" alt="${skill.skill}" width="48" height="48">
+        <p>${skill.skill}</p>
       </div>
     `;
   });
@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   typeTitle();
 });
+
 
 
 

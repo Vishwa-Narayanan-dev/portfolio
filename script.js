@@ -22,37 +22,30 @@ loadSkills();
 
 // ---------------- PROJECTS ----------------
 const projectGrid = document.querySelector(".projects-grid");
-const filterBtns = document.querySelectorAll(".filter-btn");
 let projects = [];
 
 async function loadProjects() {
-    const res = await fetch(projectURL);
-    projects = await res.json();
-    displayProjects("all");
+  const res = await fetch(projectURL);
+  projects = await res.json();
+  displayProjects("all");
 }
 
 function displayProjects(category) {
-    projectGrid.innerHTML = "";
+  projectGrid.innerHTML = "";
 
-    projects
-      .filter(p => category === "all" || p.category === category)
-      .forEach(p => {
-        projectGrid.innerHTML += `
-            <div class="project-card">
-                <h3>${p.title}</h3>
-                <p>${p.description}</p>
-                <b>Category: ${p.category}</b>
-            </div>`;
-      });
-}
-
-filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelector(".filter-btn.active").classList.remove("active");
-        btn.classList.add("active");
-        displayProjects(btn.dataset.category);
+  projects
+    .filter(p => category === "all" || p.category === category)
+    .forEach(p => {
+      projectGrid.innerHTML += `
+        <div class="project-card">
+          <img src="${p.image}" alt="${p.title}">
+          <h3>${p.title}</h3>
+          <span class="project-category">${p.category}</span>
+          <p>${p.description}</p>
+        </div>
+      `;
     });
-});
+}
 
 loadProjects();
 
@@ -103,4 +96,5 @@ async function loadAchievements() {
 }
 
 loadAchievements();
+
 

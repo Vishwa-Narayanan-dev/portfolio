@@ -7,7 +7,6 @@ const achieveURL  = "https://raw.githubusercontent.com/Vishwa-Narayanan-dev/vish
 
 // ================= SKILLS =================
 
-const skillsURL = "https://raw.githubusercontent.com/Vishwa-Narayanan-dev/vishwa-portfolio-data/main/skills.json";
 const skillsGrid = document.querySelector(".skills-grid");
 
 async function loadSkills() {
@@ -191,4 +190,3 @@ function typeSub() {
 
 // Start animation
 typeMain();
-
